@@ -1,0 +1,22 @@
+/*
+ * Z-Index BreakPoints
+**/
+$Z-IndexBreakPoints: (
+	Dialog: 1000,
+	Picker: 1000,
+	Modal: 900,
+	Overlay: 800,
+	Navigation: 700,
+
+
+	Negative: -1000
+);
+
+/*
+ * @GetZIndex function for using Z-Index BreakPoints
+**/
+@function GetZIndex($indexKey) {
+	$selectedIndex: map-get($Z-IndexBreakPoints, $indexKey);
+
+	@return $selectedIndex;
+}

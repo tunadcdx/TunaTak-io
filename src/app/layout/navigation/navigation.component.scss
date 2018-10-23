@@ -1,0 +1,115 @@
+:host {
+  position: fixed;
+  width: 0%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+#navigation {
+  position: relative;
+  display: flex;
+  width: 300px;
+  height: 100%;
+  left: -300px;
+  background: rgb(174, 174, 192);
+  transition: all 0.4s ease-out;
+  &.active {
+    left: 0;
+
+    #ToggleNavigatiobButton {
+      left: calc(100% - 70px);
+      width: 40px;
+      div {
+        &:nth-child(1) {
+          transform: rotate(-45deg);
+        }
+        &:nth-child(2) {
+          transform: rotate(45deg);
+        }
+        &:nth-child(3) {
+          transform: rotate(360deg) scale(0);
+        }
+      }
+    }
+  }
+  nav {
+   padding-top: 100px;
+    ul {
+      list-style: none;
+      padding: 0;
+      padding-left: 20px;
+      margin-bottom: 1000px;
+      li {
+        cursor: pointer;
+        &:before,
+        &:after {
+          content: attr(name);
+          position: absolute;
+          left: 0;
+          top: 0;
+          font-size: 30px;
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          font-weight: 800;
+          color: GetColor(Overlay, P100);
+        }
+        &:hover li::after {
+          background-color: #fff;
+        }
+      }
+    }
+  }
+}
+#ToggleNavigatiobButton {
+  position: absolute;
+  left: calc(100% + 20px);
+  top: 20px;
+  width: 40px;
+  height: 50px;
+  div {
+    position: relative;
+    width: 40px;
+    height: 5px;
+    margin: 5px;
+    overflow: hidden;
+
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      height: 5px;
+      width: 100%;
+      left: -2px;
+      top: 0;
+      background-color: #fff;
+      transform: skew(-40deg);
+      transition: all 0.4s ease-out;
+    }
+    &:after {
+      background: rgb(200, 132, 132);
+      left: -43px;
+    }
+    &:nth-child(2) {
+      width: 30px;
+      &::after {
+        transition-delay: 0.2s;
+      }
+    }
+    &:nth-child(3) {
+      width: 20px;
+      &::after {
+        transition-delay: 0.4s;
+      }
+    }
+    transition: all 0.4s ease-out;
+  }
+
+  &:hover div::after {
+    left: -2px;
+    background: red;
+  }
+}
+Body{
+  background-color: rgb(200, 94, 94);
+
+
+}
